@@ -28,7 +28,7 @@ runs:
         python-version: "3.12.2"
 
     - name: Install dependencies
-      run: pip install -r requirements.txt
+      run: pip install requests
       shell: bash
 
     - name: Run deploy script
@@ -38,5 +38,5 @@ runs:
         ASSET_LIBRALY_PASSWORD: ${{ inputs.password }}
         COMMIT_SHA: ${{ inputs.commit_sha }}
         RELEASE_TAG: ${{ inputs.release_tag }}
-      run: python deploy.py
+      run: python ${{ github.action_path }}/deploy.py
       shell: bash
