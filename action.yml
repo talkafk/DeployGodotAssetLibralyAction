@@ -38,5 +38,5 @@ runs:
         ASSET_LIBRALY_PASSWORD: ${{ inputs.password }}
         COMMIT_SHA: ${{ inputs.commit_sha }}
         RELEASE_TAG: ${{ inputs.release_tag }}
-      run: python deploy.py
+      run: python ${{ github.action_path }}/deploy.py
       shell: bash
