@@ -1,0 +1,42 @@
+name: "Deploy to Godot Asset Library"
+description: "Uploads a plugin or asset to the Godot Asset Library"
+author: "Talkafk"
+
+inputs:
+  asset_id:
+    description: "Godot Asset Library ID"
+    required: true
+  login:
+    description: "Login for Godot Asset Library"
+    required: true
+  password:
+    description: "Password for Godot Asset Library"
+    required: true
+  commit_sha:
+    description: "Commit SHA of the release"
+    required: true
+  release_tag:
+    description: "Release tag name"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.12.2"
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+      shell: bash
+
+    - name: Run deploy script
+      env:
+        ASSET_ID: ${{ inputs.asset_id }}
+        ASSET_LIBRALY_LOGIN: ${{ inputs.login }}
+        ASSET_LIBRALY_PASSWORD: ${{ inputs.password }}
+        COMMIT_SHA: ${{ inputs.commit_sha }}
+        RELEASE_TAG: ${{ inputs.release_tag }}
+      run: python deploy.py
+      shell: bash
