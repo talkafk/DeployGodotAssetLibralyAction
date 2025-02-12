@@ -1,9 +1,7 @@
 import os
 import requests
-import shutil
-import tempfile
 
-ASSET_ID = os.getenv("ASSET_ID")  # ID ассета
+ASSET_ID = os.getenv("ASSET_ID") 
 LOGIN = os.getenv("ASSET_LIBRALY_LOGIN")
 PASSWORD = os.getenv("ASSET_LIBRALY_PASSWORD")
 BASE_URL = "https://godotengine.org/asset-library/api/"
@@ -12,7 +10,7 @@ RELEASE_TAG = os.getenv("RELEASE_TAG")
 
 def login() -> str:
 	""" Авторизуется и получает токен """
-	data = {"username": USERNAME, "password": PASSWORD}
+	data = {"username": LOGIN, "password": PASSWORD}
 	url = BASE_URL + "/login"
 	response = requests.post(url, json=data)
 	
