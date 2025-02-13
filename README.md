@@ -1,4 +1,4 @@
-# Godot Asset Library Deploy Action
+# Deploy Godot Asset Libraly
 
 ## 📌 Description
 
