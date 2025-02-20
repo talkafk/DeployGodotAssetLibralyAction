@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy to Godot Asset Library
-        uses: talkafk/DeployGodotAssetLibraly@v1
+        uses: talkafk/DeployGodotAssetLibralyAction@v1
         with:
           login: "your-login"
           password: ${{ secrets.GODOT_PASSWORD }}
