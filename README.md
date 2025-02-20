@@ -1,4 +1,4 @@
-# Deploy Godot Asset Libraly
+# Deploy Godot Asset Libraly Action
 
 ## 📌 Description
 
